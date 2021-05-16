@@ -1,0 +1,235 @@
+@font-face {
+  font-family: 'Muli';
+  src: local('Muli'), url(./assets/fonts/Muli.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Muli Regular';
+  src: local('Muli Regular'), url(./assets/fonts/Muli-Regular.ttf) format('truetype');
+}
+
+@font-face {
+  src: local('Muli Light'), url(./assets/fonts/Muli-Light.ttf) format('truetype');
+  font-family: 'Muli Light';
+}
+
+@font-face {
+  font-family: 'HK Nova Medium';
+  src: local('HK Nova Medium'), url(./assets/fonts/HKNova-Medium.ttf) format('truetype');
+}
+
+:root {
+  --background-color: #26292D;
+  --global-color-primary: #6EC1E4;
+  --global-color-secondary: #54595F; 
+  --global-color-primary-button-text: #212429;
+  --global-color-button-hover-background: #fff;
+  --global-color-primary-background: #93C33C;
+  --global-color-text: #7A7A7A;
+  --global-color-accent: #61CE70;
+  --global-color-74a7388: #FFFFFF;
+  --global-color-2832a14e: #262626;
+  --global-color-3448d539: #F7F7F7;
+  --global-color-38c861ba: #E97575;
+  --global-color-1ca60e17: #000000;
+  --global-color-35d682e1: #5091CD;
+  --global-color-26eddcfa: #608D19;
+  --global-color-5fb4a883: #93C23D;
+  --global-color-374902c3: #59BB00;
+  --global-color-1f6cb5d6: #3DC26A;
+  --global-color-248130f1: #27640B;
+  --global-color-782451fa: #CECECE;
+  --global-color-124df59b: #717171;
+  --global-color-primary-text: #EDEDED;
+  --global-color-primary-title: #D0D0D0;
+  --global-color-primary-page-title: #FFFF;
+  --global-color-1008b4cf: #888888;
+  --global-color-301652e5: #7F7F7F;
+  --global-color-2100d119: #26292D;
+  --global-color-7b095784: #2B2F34;
+  --global-color-1b8b35bd: #363C45;
+  --global-color-749757bd: RGBA(255, 255, 255, 0.0196078431372549);
+  --global-color-60fb8b3c: RGBA(43, 47, 52, 0.8117647058823529);
+  --global-typography-primary-font-family: "HK Nova Medium";
+  --global-typography-primary-font-weight: 500;
+  --global-typography-secondary-font-family: "HK Nova Medium";
+  --global-typography-secondary-font-weight: 500;
+  --global-typography-text-font-family: "HK Nova Medium";
+  --global-typography-text-font-weight: 400;
+  --global-typography-accent-font-family: "HK Nova Medium";
+  --global-typography-accent-font-weight: 500;
+  --global-typography-primary-page-title-font-family: "HK Nova Medium", sans-serif;
+  --global-typography-primary-button-font-family: "HK Nova Medium", sans-serif;
+  --global-typography-primary-page-title-font-size: 1.3em;
+  --global-typography-primary-title-font-family: "Muli", sans-serif;
+  --global-typography-primary-text-font-family: "Muli Light", sans-serif;
+  --global-typography-text-line-height: 1.4em;
+  --global-typography-text-font-size: 16px;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+body {
+  background-color: var(--background-color);
+}
+
+::selection {
+  background-color: #6fa814;
+  color: #000000;
+}
+
+a {
+  text-decoration: none;
+}
+
+section {
+  margin-top: 56px;
+}
+
+p {
+  color: var(--global-color-primary-text);
+  font-family: var(--global-typography-primary-text-font-family);
+  line-height: var(--global-typography-text-line-height);
+  font-size: var(--global-typography-text-font-size);
+  font-weight: 200;
+  padding: 7px;
+}
+
+h2 {
+  color: var(--global-color-primary-title);
+  font-family: var(--global-typography-primary-title-font-family);
+  font-weight: 100;
+  line-height: 1.2em;
+  margin-top: 21px;
+  margin-bottom: 21px;
+}
+
+ul {
+  padding-left: 42px;
+  margin: 21px 0 21px 0;
+  color: var(--global-color-primary-text);
+  font-family: var(--global-typography-primary-text-font-family);
+  line-height: var(--global-typography-text-line-height);
+  font-size: var(--global-typography-text-font-size);
+}
+
+#header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 21px;
+}
+
+.main {
+  padding: 30px;
+}
+
+.content {
+  margin: auto;
+  max-width: 1024px;
+}
+
+.page-title {
+  color: var(--global-color-primary-page-title);
+  font-family: var(--global-typography-primary-page-title-font-family);
+  font-size: var(--global-typography-primary-page-title-font-size);
+  /* margin-top: 56px; */
+  font-weight: 600;
+  text-transform: uppercase;
+  font-style: normal;
+  line-height: 1.4em;
+  text-align: center;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: capitalize;
+  text-align: center;
+  background-color: var(--global-color-primary-background);
+  margin: 14px;
+  height: 48px;
+  max-width: 210px;
+  border-radius: 4px;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  border-color: var(--global-color-primary-background);
+}
+
+.btn * {
+  font-family: var(--global-typography-primary-button-font-family);
+  color: var(--global-color-primary-button-text);
+  font-size: 17px;
+  font-weight: 700;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn:hover {
+  background-color: var(--global-color-button-hover-background);
+}
+
+.btn:hover > *{
+  fill: var(--global-color-primary-background);
+  color: var(--global-color-primary-background);
+}
+
+/* Budget wizard Styles Start */
+
+
+
+
+/* Steps controller start */
+.steps-controller_container {
+  position: fixed;
+  height: 56px;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 5px;
+  background-color: var(--global-color-secondary);
+  box-shadow: -4px 0px 14px 2px var(--global-color-secondary);
+}
+
+.steps-controller {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.step-btn {
+  margin: 0;
+  min-width: 105px
+}
+
+/* Steps controller ends */
+
+
+
+
+/* Budget wizard Styles ends */
+
+/* Media Queries*/
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  #header {
+    flex-direction: column;
+    padding: 21px 7px 0 7px;
+    
+  }
+  #header .page-title{
+    color: var(--global-color-primary-page-title);
+    font-family: var(--global-typography-primary-page-title-font-family);
+    font-size: var(--global-typography-primary-page-title-font-size);
+    margin-top: 56px;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-style: normal;
+    line-height: 1.4em;
+    text-align: center;
+  }
+}
