@@ -1,6 +1,7 @@
 import rightArrow from "./../assets/img/right-arrow.svg"
 import {AiOutlineArrowRight} from "react-icons/ai"
 import { Link } from "react-router-dom";
+import Footer from "./footer";
 export default function Main() {
 
     return (
@@ -58,6 +59,7 @@ export default function Main() {
             </section>
         
          </div>
+         <Footer />
       </main>
     )
 }

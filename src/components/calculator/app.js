@@ -6,7 +6,9 @@ export default function RoasCalculator() {
 
     return ( 
         <Fragment>
-            <Wizard />
+            <div className="roas-wizard_container">
+                <Wizard />
+            </div>
             <StepsController />
         </Fragment>
     )
