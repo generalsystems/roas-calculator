@@ -257,6 +257,7 @@ ul {
 
 .roas-wizard_container {
   margin: auto;
+  padding: 7px;
   padding-bottom: 70px;
   max-width: 1200px;
   height: 100%;
@@ -324,6 +325,22 @@ ul {
   text-align: center;
 }
 
+.roas-results {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+  min-height: 77vh;
+}
+
+
+.roas-results_value {
+  text-align: center;
+  font-size: 49px;
+  color: var(--global-color-primary-background)
+}
+
+
 .ant-radio-inner::after {
   position: absolute;
   top: -4px;
@@ -386,6 +403,7 @@ ul {
   flex-direction: column;
   align-items: center;
   width: 100%;
+  padding: 28px;
 }
 
 .footer_main{
@@ -528,6 +546,10 @@ ul {
 
   .footer-links .divider{
     display: none
+  }
+
+  .number-input ::placeholder {
+    font-size: 16px !important;
   }
 
 }

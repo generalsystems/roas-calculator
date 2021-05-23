@@ -1,8 +1,30 @@
-import rightArrow from "./../assets/img/right-arrow.svg"
+import { useEffect } from "react";
 import {AiOutlineArrowRight} from "react-icons/ai"
 import { Link } from "react-router-dom";
-import Footer from "./footer";
+import Footer from "../components/footer";
+import { useResetRecoilState } from "recoil";
+import { currentstep, industry,productcost, orderavgvalue, visitorsCount, orders, industries, isnextdisabled, adspend } from '../model/app';
+
+
 export default function Main() {
+    const resetIndustry = useResetRecoilState(industry)
+    const resetaov = useResetRecoilState(orderavgvalue)
+    const resetvisitorcount = useResetRecoilState(visitorsCount)
+    const restorders = useResetRecoilState(orders)
+    const resetisContinue = useResetRecoilState(isnextdisabled)
+    const resetproductCost = useResetRecoilState(productcost)
+    const resetAdspend = useResetRecoilState(adspend)
+    const resetcurentstep = useResetRecoilState(currentstep)
+    useEffect(()=> {
+        resetIndustry()
+        resetaov()
+        resetvisitorcount()
+        restorders()
+        resetisContinue()
+        resetAdspend()
+        resetproductCost()
+        resetcurentstep()
+    })
 
     return (
      <main className="main">
@@ -14,7 +36,7 @@ export default function Main() {
 
             <h2>Grow your ROAS</h2>
             <p>
-            AdRoll’s ROAS (Return on Ad Spend) calculator will make smart recommendations for how your brand should spend your dollars in order to maximize return on ad spend.
+            Hypewell’s ROAS (Return on Ad Spend) calculator will make smart recommendations for how your brand should spend your dollars in order to maximize return on ad spend.
             </p>
 
             <h2>Learn from our E-Commerce Expertise</h2>
@@ -28,7 +50,7 @@ export default function Main() {
             </ul>
 
             <p>
-            AdRoll’s ROAS calculator will predict what would happen when they allocate budget towards these goals including their return on ad spend impact.
+            Hypewell’s ROAS calculator will predict what would happen when they allocate budget towards these goals including their return on ad spend impact.
             </p>
             <Link className="btn roas-btn" to="/calculate">
                 <p style={{margin:0}}>Claculate ROAS</p>

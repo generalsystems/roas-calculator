@@ -9,9 +9,9 @@ import {
   Link
 } from "react-router-dom";
 import Header from './components/header';
-import Main from './components/main';
-import RoasCalculator from './components/calculator/app';
-import RoasResults from './components/calculator/results';
+import Main from './screens/main';
+import RoasCalculator from './screens/calculator';
+import RoasResults from './screens/results';
 
 function App() {
   return (

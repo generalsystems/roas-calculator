@@ -1,8 +1,8 @@
 import { Button, Progress } from 'antd';
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi"
-import { useHistory, useLocation } from 'react-router';
+import { useHistory } from 'react-router';
 import { useRecoilState, useRecoilValue, useResetRecoilState } from 'recoil';
-import { currentstep, industry, orderavgvalue, visitorsCount, orders, industries, isnextdisabled } from '../../model/app';
+import { currentstep, industry,productcost, orderavgvalue, visitorsCount, orders, industries, isnextdisabled, adspend } from '../../model/app';
 
 
 export default function StepsController() {
@@ -14,6 +14,8 @@ export default function StepsController() {
     const aovValue = useRecoilValue(orderavgvalue)
     const trafficValue = useRecoilValue(visitorsCount)
     const ordersValue = useRecoilValue(orders)
+    const productCostValue = useRecoilValue(productcost)
+    const adspendValue = useRecoilValue(adspend)
 
     const [isContinueDisabled, setiscontinuedisabled] = useRecoilState(isnextdisabled)
     const next = () => {
@@ -25,6 +27,11 @@ export default function StepsController() {
                 break;
             case "orders":
                 if(typeof(ordersValue) === "number" && ordersValue > 0) {
+                    setStep("product cost")
+                }
+                break;
+            case "product cost":
+                if(typeof(productCostValue) === "number" && productCostValue > 0) {
                     setStep("aov")
                 }
                 break;
@@ -35,7 +42,12 @@ export default function StepsController() {
                 break;
             case "traffic":
                 if(typeof(trafficValue) === "number" && trafficValue > 0) {
-                    console.log("calulate")
+                    setStep("adspend")
+                }
+                break;
+            case "adspend":
+                if(typeof(adspendValue) === "number" && adspendValue > 0) {
+                    history.push('/results')
                 }
                 break;
         
@@ -47,7 +59,10 @@ export default function StepsController() {
             const resetaov = useResetRecoilState(orderavgvalue)
             const resetvisitorcount = useResetRecoilState(visitorsCount)
             const restorders = useResetRecoilState(orders)
-
+            const resetisContinue = useResetRecoilState(isnextdisabled)
+            const resetproductCost = useResetRecoilState(productcost)
+            const resetAdspend = useResetRecoilState(adspend)
+    
     const back = () => {
         switch (step) {
             case "industry":
@@ -55,16 +70,25 @@ export default function StepsController() {
                 resetaov()
                 resetvisitorcount()
                 restorders()
+                resetisContinue()
+                resetAdspend()
+                resetproductCost()
                 history.push("/")
                 break;
             case "orders":
                 setStep("industry")
                 break;
-            case "aov":
+            case "product cost":
                 setStep("orders")
+                break;
+            case "aov":
+                setStep("product cost")
                 break;
             case "traffic":
                  setStep("aov")
+                break;
+            case "adspend":
+                 setStep("traffic")
                 break;
         }
     }
@@ -72,12 +96,16 @@ export default function StepsController() {
     const percentage = () => {
         switch (step) {
             case "industry":
-                return 25
+                return 10
             case "orders":
-                return 50
+                return 20
+            case "product cost":
+                return 35
             case "aov":
-                return 75
+                return 50
             case "traffic":
+                return 75
+            case "adspend":
                 return 90
         }
     }
@@ -87,7 +115,9 @@ export default function StepsController() {
             <div className="steps-controller">
             <Button onClick={back} className="btn step-btn step-btn_back" icon={<FiChevronLeft size={21} />} type="primary" size="large" >Back</Button>
             <Button onClick={next} disabled={isContinueDisabled} className="btn step-btn step-btn_continue" type="primary" size="large" >
-                Continue
+               {
+                step === "adspend" ? "Calculate the Roas" : "Continue"
+                }
                 <FiChevronRight size={21} />
                 </Button>
             </div>

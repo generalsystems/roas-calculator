@@ -2,7 +2,7 @@ import { atom } from "recoil";
 
 export const steps = atom({
     key: "steps",
-    default: ["industry", "orders", "aov", "traffic"]
+    default: ["industry", "orders", "product cost", "aov", "adspend", "traffic"]
 })
 
 export const currentstep = atom({
@@ -20,17 +20,6 @@ export const isnextdisabled = atom({
 //   Adjust Budget
 // Monthly advertising budget
 
-
-//How many orders* does your website get per month?
-//*Order can mean a sale, lead, registration, etc. based on what you consider to be your most valuable conversion.
-
-//What is the average value of an order?
-
-//How many website visitors do you have a month?
-
-//What is your industry?
-
-
 export const industries = atom({
     key: "industries",
     default:["Arts, Entertainment & Education", "Automotive & Sports", "Business & Careers", "Family, Parenting & Society", "Health, Fitness & Food", "Home/Garden, Pets & Hobbies", "News, Politics & Law", "Personal Finance", "Real Estate", "Retail", "Style & Fashion", "Technology & Computing", "Travel", "Other"]
@@ -44,6 +33,16 @@ export const industry = atom({
 
 export const orders = atom({
     key: "orders",
+    default: ""
+})
+
+export const productcost = atom({
+    key: "productcost",
+    default: ""
+})
+
+export const adspend = atom({
+    key: "adspend",
     default: ""
 })
 
